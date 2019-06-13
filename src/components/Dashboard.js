@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
+import GetPlants from './plantFolder/GetPlants'
 
-import Button from 'react-bootstrap/Button'
 
 
 class Dashboard extends React.Component{
@@ -9,9 +9,9 @@ class Dashboard extends React.Component{
         return(
             <div>
                 <Header />
-                <Button variant="primary" size="lg" block>
-                    Add a Plant
-                </Button>
+                <div>
+                    <GetPlants />
+                </div>
             </div>
         )
     }

@@ -1,16 +1,30 @@
 import React from 'react';
+import '../index.css';
+
+
+import Header from './Header';
 import Dashboard from './Dashboard';
+import Login from './Login';
+
+import { Router, Route, Switch } from 'react-router-dom';
+import history from '../history';
 
 import Container from 'react-bootstrap/Container';
 
 class App extends React.Component{
     render(){
         return(
-            <div>
+            <Router history={history}>
                 <Container>
-                <Dashboard />
+                    <Header />
+                    <Switch>
+                        <Route path ='/' exact component={Login}/>
+                        <Route path ='/dashboard' exact component={Dashboard}/>
+                    
+                        
+                    </Switch>
                 </Container>
-            </div>
+            </Router>
         )
     }
 }

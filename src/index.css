@@ -1,0 +1,23 @@
+
+
+.getPlantsGroup{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+.getPlantsCards{
+    min-height: 400px;
+    width: 300px;
+    margin-top: 10vw;
+}
+
+.getPlantButton{
+    height: 250px;
+    width: 250px;
+    border-radius: 200px;
+    margin-top: 10vw;
+    font-size: 8em;
+    font-weight: 100;
+}
