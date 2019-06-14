@@ -1,6 +1,7 @@
 import React from 'react';
-import { getPlants } from '../../actions/';
+import { getPlants, deletePlant } from '../../actions/';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -13,6 +14,11 @@ class GetPlants extends React.Component{
         this.props.getPlants()
     }
 
+    deletePlantHelper=(id)=>{
+        this.props.deletePlant(id)
+    }
+
+
     renderPlants = () =>{
         return (
             this.props.plants.map((plant)=>{
@@ -24,6 +30,7 @@ class GetPlants extends React.Component{
                             </Card.Header>
                             <Card.Body>
                                 <Card.Text>This is where the description of the plant wil be</Card.Text>
+                                <Button onClick={this.props.deletePlant.bind(this, plant._id)} size='sm' variant='danger'>X</Button>
                             </Card.Body>
                             <ListGroup >
                                 <ListGroupItem>{plant.water}</ListGroupItem>
@@ -37,8 +44,9 @@ class GetPlants extends React.Component{
 
     renderButton = () => {
         return(
+            
             <Button className='getPlantButton' variant="dark" size="lg">
-                <p>+</p>
+                <Link to='/add' className='plantFormLink'>+</Link> 
             </Button>
         ) 
     }
@@ -59,4 +67,4 @@ const mapStateToProps = (state) =>{
     }
 }
 
-export default connect(mapStateToProps,{ getPlants })(GetPlants);
+export default connect(mapStateToProps,{ getPlants, deletePlant })(GetPlants);

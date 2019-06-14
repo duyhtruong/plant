@@ -21,3 +21,18 @@
     font-size: 8em;
     font-weight: 100;
 }
+
+.plantFormCard{
+    max-width: 500px;
+    margin: auto;
+    margin-top: 3vw;
+}
+
+.plantFormButtons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.plantFormLink{
+    color: white;
+}
