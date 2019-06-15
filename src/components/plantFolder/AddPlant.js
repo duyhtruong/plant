@@ -6,7 +6,7 @@ import { createPlant } from '../../actions';
 
 class AddPlant extends React.Component{
     
-    createSubmit=(formValues)=>{
+    onSubmit=(formValues)=>{
         return(
             this.props.createPlant(formValues)
         )
@@ -15,7 +15,7 @@ class AddPlant extends React.Component{
     render(){
         return(
             <div>
-                <PlantForm createSubmit={this.createSubmit} />
+                <PlantForm onSubmit={this.onSubmit} />
             </div>
         )
     }

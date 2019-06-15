@@ -21,31 +21,51 @@ class GetPlants extends React.Component{
 
     renderPlants = () =>{
         return (
-            this.props.plants.map((plant)=>{
-                return(
-                    <div key={plant._id}>
-                        <Card className='getPlantsCards' bg='light' border='success' >
-                            <Card.Header>
-                                {plant.name}
-                            </Card.Header>
-                            <Card.Body>
-                                <Card.Text>This is where the description of the plant wil be</Card.Text>
-                                <Button onClick={this.props.deletePlant.bind(this, plant._id)} size='sm' variant='danger'>X</Button>
-                            </Card.Body>
-                            <ListGroup >
-                                <ListGroupItem>{plant.water}</ListGroupItem>
-                            </ListGroup>
-                        </Card>
-                    </div>
-                )
-            })
+            this.props.plants.map((plant)=>
+                <div key={plant._id}>
+                    <Card 
+                        className='getPlantsCards' 
+                        bg='light' 
+                        border='success' 
+                    >
+                        <Card.Header>
+                            {plant.name}
+                        </Card.Header>
+                        <Card.Body>
+                            <Card.Text>
+                                This is where the description of the plant wil be
+                            </Card.Text>
+                        </Card.Body>
+                        <ListGroup >
+                            <ListGroupItem>{plant.water}</ListGroupItem>
+                        </ListGroup>
+                        <Button 
+                            onClick={this.props.deletePlant.bind(this, plant._id)}  
+                            variant='danger'
+                            >Delete
+                        </Button>
+                        <Button 
+                            variant='success'
+                            >
+                            <Link 
+                                to={`/plant/${plant._id}`}
+                                className='plantFormLink'
+                                >Edit</Link>
+                        </Button>
+                    </Card>
+                </div>
+            )
         )
     }
 
     renderButton = () => {
         return(
             
-            <Button className='getPlantButton' variant="dark" size="lg">
+            <Button 
+                className='getPlantButton' 
+                variant="dark" 
+                size="lg"
+            >
                 <Link to='/add' className='plantFormLink'>+</Link> 
             </Button>
         ) 

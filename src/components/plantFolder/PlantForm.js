@@ -18,8 +18,8 @@ const renderCustomForm = ({input, type, placeholder})=>{
  }
 
 const PlantForm = (props) => {
-    
-    const onSubmit = (formValues) =>{props.createSubmit(formValues)}
+
+    const onSubmit = (formValues) =>{props.onSubmit(formValues)}
 
         return(
             <Card className='plantFormCard'>
@@ -47,7 +47,7 @@ const PlantForm = (props) => {
                 />
                 </div>
                 <div className='plantFormButtons'>
-                    <Button onClick={props.handleSubmit(onSubmit)} variant='primary'>Submit</Button>
+                    <Button onClick={props.handleSubmit(props.onSubmit)} variant='primary'>Submit</Button>
                     <Button variant='danger'>
                         <Link to='/dashboard' className='plantFormLink'>Cancel</Link>
                     </Button>
