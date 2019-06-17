@@ -1,17 +1,18 @@
 import React from 'react'
 
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component{
     render(){
         return(
             <div>
                 <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="#home">Plant App Placeholder Icon</Navbar.Brand>
+                    <Navbar.Brand><Link to='/dashboard'>Dashboard</Link></Navbar.Brand>
                     <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            Placeholder
+                            <Link to='/'>Login</Link>
                         </Navbar.Text>
                     </Navbar.Collapse>
                 </Navbar>
