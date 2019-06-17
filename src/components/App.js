@@ -8,6 +8,7 @@ import Login from './Login';
 import AddPlant from './plantFolder/AddPlant';
 import EditPlant from './plantFolder/EditPlant';
 import Register from './Register';
+import Logout from './Logout';
 
 import { Router, Route, Switch } from 'react-router-dom';
 import history from '../history';
@@ -26,6 +27,7 @@ class App extends React.Component{
                         <Route path ='/add' exact component={AddPlant}/>
                         <Route path ='/plant/:id' exact component={EditPlant}/>
                         <Route path ='/register/' exact component ={Register}/>
+                        <Route path='/logout' exact component ={Logout} />
                     </Switch>
                 </Container>
             </Router>

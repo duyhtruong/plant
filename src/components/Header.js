@@ -14,6 +14,9 @@ class Header extends React.Component{
                         <Navbar.Text>
                             <Link to='/'>Login</Link>
                         </Navbar.Text>
+                        <Navbar.Text>
+                            <Link to='/logout'>Logout</Link>
+                        </Navbar.Text>                        
                     </Navbar.Collapse>
                 </Navbar>
             </div>

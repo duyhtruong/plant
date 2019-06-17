@@ -56,7 +56,7 @@ const RegisterForm = (props) => {
                 />
                 </div>
                 <div className='plantFormButtons'>
-                    <Button variant='primary'>Submit</Button>
+                    <Button onClick={props.handleSubmit(props.onSubmit)} variant='primary'>Submit</Button>
 
                 </div>
             </form>

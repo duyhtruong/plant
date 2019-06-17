@@ -44,7 +44,7 @@ const LoginForm = (props) => {
                 />
                 </div>
                 <div className='plantFormButtons'>
-                    <Button variant='primary'>Login</Button>
+                    <Button variant='primary' onClick={props.handleSubmit(props.onSubmit)}>Login</Button>
                     <Button variant='danger'>
                         <Link to='/register'>Register</Link>
                     </Button>
