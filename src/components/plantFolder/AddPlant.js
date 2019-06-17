@@ -6,9 +6,9 @@ import { createPlant } from '../../actions';
 
 class AddPlant extends React.Component{
     
-    onSubmit=(formValues)=>{
+    onSubmit=(formValues,props)=>{
         return(
-            this.props.createPlant(formValues)
+            this.props.createPlant(formValues,this.props.user.undefined.token)
         )
     }
     
@@ -23,7 +23,8 @@ class AddPlant extends React.Component{
 
     const mapStateToProps = (state)=>{
         return{
-            newPlant : (state.form) 
+            newPlant : (state.form),
+            user: (state.users)
         }
     }
 

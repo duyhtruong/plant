@@ -11,7 +11,7 @@ import Button from 'react-bootstrap/Button';
 class GetPlants extends React.Component{
     
     componentDidMount(){
-        this.props.getPlants()
+        this.props.getPlants(this.props.user.undefined.token)
     }
 
     deletePlantHelper=(id)=>{
@@ -40,7 +40,7 @@ class GetPlants extends React.Component{
                             <ListGroupItem>{plant.water}</ListGroupItem>
                         </ListGroup>
                         <Button 
-                            onClick={this.props.deletePlant.bind(this, plant._id)}  
+                            onClick={this.props.deletePlant.bind(this, plant._id, this.props.user.undefined.token)}  
                             variant='danger'
                             >Delete
                         </Button>
@@ -83,7 +83,8 @@ class GetPlants extends React.Component{
 
 const mapStateToProps = (state) =>{
     return {
-        plants: Object.values(state.plants)
+        plants: Object.values(state.plants),
+        user: (state.users)
     }
 }
 

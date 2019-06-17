@@ -12,6 +12,8 @@ export default (state={}, action) =>{
             return _.omit(state, action.payload);
         case 'EDIT_PLANT':
             return {...state, [action.payload._id] : action.payload};
+        case 'LOGOUT_USER':
+            return state={}
         default:
             return state;
     }

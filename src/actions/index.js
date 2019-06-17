@@ -3,39 +3,54 @@ import users from '../api/users';
 import history from '../history';
 
 
-export const createPlant = (formValues) => {
+export const createPlant = (formValues, token) => {
     return async (dispatch, getState) => {
-        const response = await plants.post('/plant', formValues);
+        const headers = {
+            'Authorization' : `Bearer ${token}`
+        }
+        const response = await plants.post('/plant', formValues, {headers});
         dispatch({ type: 'CREATE_PLANT', payload: response.data});
         history.push('/dashboard');
     };
 };
 
-export const getPlants = () => {
+export const getPlants = (token) => {
     return async (dispatch) => {
-        const response = await plants.get('/plant');
+        const headers = {
+            'Authorization' : `Bearer ${token}`
+        }
+        const response = await plants.get('/plant', {headers});
         dispatch({ type: 'GET_PLANTS', payload: response.data})
     }
 }
 
-export const getPlant = (id) => {
+export const getPlant = (id, token) => {
     return async (dispatch) => {
-        const response = await plants.get(`/plant/${id}`);
+        const headers = {
+            'Authorization' : `Bearer ${token}`
+        }
+        const response = await plants.get(`/plant/${id}`, {headers});
         dispatch({ type: 'GET_PLANT', payload: response.data})
     }
 }
 
-export const deletePlant = (id) => {
+export const deletePlant = (id, token) => {
     return async(dispatch) => {
-        const response = await plants.delete(`/plant/${id}`);
+        const headers = {
+            'Authorization' : `Bearer ${token}`
+        }
+        const response = await plants.delete(`/plant/${id}`, {headers});
         dispatch({ type: 'DELETE_PLANT', payload: response.data._id});
         
     }
 }
 
-export const editPlant = (id, formValues) => {
+export const editPlant = (id, formValues, token) => {
     return async(dispatch) => {
-        const response = await plants.patch(`/plant/${id}`, formValues);
+        const headers = {
+            'Authorization' : `Bearer ${token}`
+        }
+        const response = await plants.patch(`/plant/${id}`, formValues,{headers});
         dispatch({ type: 'EDIT_PLANT', payload: response.data});
         history.push('/dashboard');
     }
@@ -60,7 +75,7 @@ export const loginUser = (formValues) =>{
 export const logoutUser = (token) => {
     return async(dispatch) => {
         const headers = {
-            'Authorization' :token
+            'Authorization' : `Bearer ${token}`
         }
         const response = await users.post('/users/logout',null, {headers})
         dispatch ({ type: 'LOGOUT_USER', payload: response.data});

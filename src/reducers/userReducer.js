@@ -7,7 +7,7 @@ export default (state={}, action) => {
         case 'LOGIN_USER':
             return {...state, [action.payload._id]: action.payload};
         case 'LOGOUT_USER':
-            return {...state, [action.payload._id]: action.payload};
+            return state={};
         default:
             return state;
 
