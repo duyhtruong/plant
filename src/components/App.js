@@ -25,17 +25,18 @@ class App extends React.Component{
                     <Switch>
                     <Route path ='/login' exact component={Login}/>
                     <Route path ='/' exact component={Landing}/>
-                        <Route component={Header} />
+                    <Route path ='/register/' exact component ={Register}/>
+                    <Route component={Header} />
                        
                     </Switch>
-                <Container>
+                    
                         <Route path ='/dashboard' exact component={Dashboard}/>
                         <Route path ='/add' exact component={AddPlant}/>
                         <Route path ='/plant/:id' exact component={EditPlant}/>
-                        <Route path ='/register/' exact component ={Register}/>
+                        
                         <Route path='/logout' exact component ={Logout} />
                 
-                </Container>
+     
             </Router>
         )
     }

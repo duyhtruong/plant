@@ -35,7 +35,7 @@ const LoginForm = (props) => {
                         name='email'
                         component={renderCustomForm}
                         type='text'
-                        placeholder='email'
+                        placeholder='EMAIL'
       
                     />
                 </div>
@@ -45,8 +45,8 @@ const LoginForm = (props) => {
                 <Field  
                     name='password'
                     component={renderCustomForm}
-                    type='text'
-                    placeholder='password'
+                    type='password'
+                    placeholder='PASSWORD'
                 
                    
                 />

@@ -13,6 +13,7 @@ const renderCustomForm = ({input, type, placeholder})=>{
          placeholder={placeholder}
          value={input.value}
          onChange={input.onChange}
+         className='loginField'
      />
     )
  }
@@ -22,7 +23,8 @@ const PlantForm = (props) => {
     const onSubmit = (formValues) =>{props.onSubmit(formValues)}
 
         return(
-            <Card className='plantFormCard'>
+            <Card className='loginCard'>
+            <Card.Title className='cardTitle'>Plant Form</Card.Title>
             <Card.Body>
             <form onSubmit={props.handleSubmit(onSubmit)}>
                 <div>
@@ -31,18 +33,28 @@ const PlantForm = (props) => {
                         name='name'
                         component={renderCustomForm}
                         type='text'
-                        placeholder='name'
+                        placeholder="'Pothos Neon'"
                         
                     />
                 </div>
     
                 <div>
-                <label>How often Water:</label>
+                <label>How Much Sunlight:</label>
+                <Field  
+                    name='sun'
+                    component={renderCustomForm}
+                    type='text'
+                    placeholder="'Likes direct sunlight'"
+                   
+                />
+                </div>
+                <div>
+                <label>How many days between watering:</label>
                 <Field  
                     name='water'
                     component={renderCustomForm}
                     type='text'
-                    placeholder='one week'
+                    placeholder="'8'"
                    
                 />
                 </div>

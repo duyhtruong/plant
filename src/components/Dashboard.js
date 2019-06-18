@@ -6,7 +6,7 @@ import GetPlants from './plantFolder/GetPlants'
 class Dashboard extends React.Component{
     render(){
         return(
-            <div>
+            <div className='dashboardBackground'>
                 <div>
                     <GetPlants />
                 </div>

@@ -24,34 +24,32 @@ class GetPlants extends React.Component{
             this.props.plants.map((plant)=>
                 <div key={plant._id}>
                     <Card 
-                        className='getPlantsCards' 
-                        bg='light' 
-                        border='success' 
+                        className='getPlantsCards'  
                     >
-                        <Card.Header>
-                            {plant.name}
+                        <Card.Header className='plantCardHeader'>
+                            <p className='plantCardHeaderTop'>Water Every</p>
+                            <p className='plantCardHeaderDays'>{plant.water}</p>
+                            <p className='plantCardHeaderBottom'>Days</p>
                         </Card.Header>
-                        <Card.Body>
+                        <Card.Body className='plantCardBody'>
+                            <Card.Title>
+                                {plant.name}
+                            </Card.Title>
                             <Card.Text>
-                                This is where the description of the plant wil be
+                                {plant.sun}
                             </Card.Text>
                         </Card.Body>
-                        <ListGroup >
-                            <ListGroupItem>{plant.water}</ListGroupItem>
-                        </ListGroup>
-                        <Button 
-                            onClick={this.props.deletePlant.bind(this, plant._id, this.props.user.undefined.token)}  
-                            variant='danger'
-                            >Delete
-                        </Button>
-                        <Button 
-                            variant='success'
-                            >
-                            <Link 
-                                to={`/plant/${plant._id}`}
-                                className='plantFormLink'
-                                >Edit</Link>
-                        </Button>
+                        <div className='plantCardButtonContainer'>
+                            <button className='plantCardButton' 
+                                onClick={this.props.deletePlant.bind(this, plant._id, this.props.user.undefined.token)}   
+                                >Delete
+                            </button>
+
+                                <Link 
+                                    to={`/plant/${plant._id}`}
+                                    className='plantFormLink plantCardButton'
+                                    >Edit</Link>
+                        </div>   
                     </Card>
                 </div>
             )

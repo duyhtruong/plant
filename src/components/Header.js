@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { connect } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 
@@ -7,16 +7,13 @@ class Header extends React.Component{
     render(){
         return(
             <div>
-                <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand><Link to='/dashboard'>Dashboard</Link></Navbar.Brand>
+                <Navbar className='navBar'>
+                    <Navbar.Brand><Link className='navBarLink' to='/dashboard'>Home</Link></Navbar.Brand>
                     <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text>
-                            <Link to='/'>Login</Link>
-                        </Navbar.Text>
-                        <Navbar.Text>
-                            <Link to='/logout'>Logout</Link>
-                        </Navbar.Text>                        
+                        
+                            <Link className='navBarLink' to='/logout'>Logout</Link>
+                                               
                     </Navbar.Collapse>
                 </Navbar>
             </div>
@@ -24,4 +21,10 @@ class Header extends React.Component{
     }
 }
 
-export default Header;
+const mapStateToProps = (state) =>{
+    return{
+        user:state.users
+    }
+}
+
+export default connect(mapStateToProps)(Header);

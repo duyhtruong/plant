@@ -14,7 +14,7 @@ class AddPlant extends React.Component{
     
     render(){
         return(
-            <div>
+            <div className='loginLandingPage'>
                 <PlantForm onSubmit={this.onSubmit} />
             </div>
         )

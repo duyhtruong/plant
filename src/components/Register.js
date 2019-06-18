@@ -13,7 +13,7 @@ class Register extends React.Component{
     
     render(){
         return(
-            <div>
+            <div className='loginLandingPage'>
                 <RegisterForm onSubmit={this.onSubmit} />
             </div>
         )
