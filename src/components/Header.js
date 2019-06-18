@@ -6,14 +6,15 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component{
     render(){
         return(
-            <div>
+            <div className='navParent'>
+            <div className='navAccent'></div>
                 <Navbar className='navBar'>
-                    <Navbar.Brand><Link className='navBarLink' to='/dashboard'>Home</Link></Navbar.Brand>
+                    <Navbar.Brand><Link className='navBarLink navBarBrand' to='/dashboard'>Home</Link></Navbar.Brand>
                     <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
-                        
+                            <div className='navBarLogout'>
                             <Link className='navBarLink' to='/logout'>Logout</Link>
-                                               
+                            </div>              
                     </Navbar.Collapse>
                 </Navbar>
             </div>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import Button from 'react-bootstrap/Button';
+
 
 class GetPlants extends React.Component{
     
@@ -32,7 +32,7 @@ class GetPlants extends React.Component{
                             <p className='plantCardHeaderBottom'>Days</p>
                         </Card.Header>
                         <Card.Body className='plantCardBody'>
-                            <Card.Title>
+                            <Card.Title className='plantCardTitle'>
                                 {plant.name}
                             </Card.Title>
                             <Card.Text>
@@ -45,10 +45,10 @@ class GetPlants extends React.Component{
                                 >Delete
                             </button>
 
-                                <Link 
-                                    to={`/plant/${plant._id}`}
-                                    className='plantFormLink plantCardButton'
-                                    >Edit</Link>
+                            <Link 
+                                to={`/plant/${plant._id}`}
+                                className='plantFormLink plantCardButton'
+                                >Edit</Link>
                         </div>   
                     </Card>
                 </div>
@@ -56,23 +56,11 @@ class GetPlants extends React.Component{
         )
     }
 
-    renderButton = () => {
-        return(
-            
-            <Button 
-                className='getPlantButton' 
-                variant="dark" 
-                size="lg"
-            >
-                <Link to='/add' className='plantFormLink'>+</Link> 
-            </Button>
-        ) 
-    }
+
     
     render(){
         return(
-            <div className='getPlantsGroup'>
-                {this.renderButton()}              
+            <div className='getPlantsGroup'>             
                 {this.renderPlants()}
             </div>
         )

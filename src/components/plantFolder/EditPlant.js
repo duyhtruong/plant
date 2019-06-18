@@ -18,7 +18,7 @@ class EditPlant extends React.Component{
     
     render(){
         return(
-            <div>
+            <div className='loginLandingPage'>
                 <PlantForm 
                     initialValues={_.pick(this.props.plant, 'name', 'water')}
                     onSubmit={this.onSubmit}

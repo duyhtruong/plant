@@ -5,17 +5,35 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap');
 
+
+
 .navBar{
+    padding-bottom: 20em;
     font-family: 'Roboto', sans-serif;
     background-color: #77af74;
+    clip-path: polygon(0 0, 100% 0, 100% 3%, 0 79%);
     font-size:1.5em;
-   
+    margin-top:-20em;
+    
+}
+
+
+
+.navAccent{
+    background-color: #598457;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 0);
+    height: 30em;
+}
+
+.navBarLogout{
+  padding-right:4em;
 }
 
 .navBarLink{
     color: white;
     text-decoration: none;
     font-weight: 400;
+    
 }
 
 
@@ -80,8 +98,13 @@
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
 
+}
+
+.plantCardTitle{
+    font-size: 1.5em;
 }
 
 .plantCardHeader{
@@ -130,19 +153,24 @@
     width: 350px;
     margin-top: 10vw;
     box-shadow: 7px 2px 25px 12px rgba(0,0,0,0.21);  
+    margin-right: 3em;
 }
 
 .plantCardButtonContainer{
     max-width: 100vw;
     display: flex;
     justify-content: space-around;
-
-    
+    background: gray;
+    border-bottom-left-radius: 2em !important; 
+    border-bottom-right-radius: 2em !important;  
 }
 .plantCardButton{
- 
+    background: gray;
     border: none;
     color: white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    
     
     
 }
@@ -167,7 +195,45 @@
     text-align: center;
 }
 
+.addPlantButton{
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 10em;
+    z-index: 5;
+}
+
+.addPlantText{
+    font-size: 8em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color:#c1dfc4;
+    z-index: 5;
+}
+
 .dashboardBackground{
     background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);    
-    height: 100vh
+    height: 90vh;
+    margin-top:-30em;
+}
+
+.helloDash{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 10em;
+    line-height: 1em;
+    font-weight: 900;
+    text-align: right;
+    z-index: 5;
+}
+
+
+.dashboardGroup{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 8em;
+    flex-wrap: wrap;
+   
+    
 }
