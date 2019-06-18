@@ -13,7 +13,7 @@ class Login extends React.Component{
     
     render(){
         return(
-            <div>
+            <div className='loginLandingPage'>
                 <LoginForm onSubmit={this.onSubmit} />
             </div>
         )
