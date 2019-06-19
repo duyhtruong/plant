@@ -7,15 +7,18 @@ import { createPlant } from '../../actions';
 class AddPlant extends React.Component{
     
     onSubmit=(formValues,props)=>{
-        return(
             this.props.createPlant(formValues,this.props.user.undefined.token)
-        )
+            this.props.hideModal()
+        
     }
     
     render(){
         return(
-            <div className='loginLandingPage'>
-                <PlantForm onSubmit={this.onSubmit} />
+            <div>
+                <PlantForm 
+                onSubmit={this.onSubmit}
+                hideModal={this.props.hideModal}
+                 />
             </div>
         )
     }

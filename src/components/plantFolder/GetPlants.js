@@ -1,15 +1,31 @@
 import React from 'react';
 import { getPlants, deletePlant } from '../../actions/';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+import EditPlant from './EditPlant';
 
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import ListGroupItem from 'react-bootstrap/ListGroupItem';
 
+import Modal from 'react-bootstrap/Modal';
 
 class GetPlants extends React.Component{
-    
+
+    state ={
+        editModal: null
+    }
+
+    showEditModal = (id) => {
+        this.setState({
+            editModal: id
+        })
+    }
+
+    hideEditModal = () => {
+        this.setState({
+            editModal: null
+        })
+    }
+
     componentDidMount(){
         this.props.getPlants(this.props.user.undefined.token)
     }
@@ -17,6 +33,7 @@ class GetPlants extends React.Component{
     deletePlantHelper=(id)=>{
         this.props.deletePlant(id)
     }
+
 
 
     renderPlants = () =>{
@@ -45,10 +62,15 @@ class GetPlants extends React.Component{
                                 >Delete
                             </button>
 
-                            <Link 
-                                to={`/plant/${plant._id}`}
-                                className='plantFormLink plantCardButton'
-                                >Edit</Link>
+                            <button className='plantCardButton'
+                                onClick={()=>this.showEditModal(plant._id)}
+                                >Edit
+                            </button>
+                            
+
+                            <Modal show={this.state.editModal === plant._id} >  
+                                <EditPlant plantID={plant._id} hideEditModal={this.hideEditModal}  />
+                            </Modal>
                         </div>   
                     </Card>
                 </div>

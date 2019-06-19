@@ -14,7 +14,7 @@ import Landing from './Landing';
 import { Router, Route, Switch } from 'react-router-dom';
 import history from '../history';
 
-import Container from 'react-bootstrap/Container';
+
 
 class App extends React.Component{
     render(){

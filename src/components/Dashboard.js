@@ -1,11 +1,28 @@
 import React from 'react';
 import GetPlants from './plantFolder/GetPlants'
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-
+import Modal from 'react-bootstrap/Modal';
+import AddPlant from './plantFolder/AddPlant';
 
 class Dashboard extends React.Component{
-    
+
+    state = {
+        toggleModal: false
+    }
+
+    showModal = () =>{
+        this.setState({
+            toggleModal: true
+        })
+    }
+
+    hideModal = () =>{
+        this.setState({
+            toggleModal: false
+        })
+    }
+
+
     renderWelcome = () =>{
         return(
             <div className='helloDash'>
@@ -17,7 +34,12 @@ class Dashboard extends React.Component{
     
     renderButton = () => {
         return(  
-                <Link to='/add' className='plantFormLink addPlantButton'><p className='addPlantText'>+</p></Link> 
+            
+                <button onClick={this.showModal} className='plantFormLink addPlantButton'>
+                    <p className='addPlantText'>+</p>
+                </button>
+            
+         
         ) 
     }
 
@@ -28,6 +50,9 @@ class Dashboard extends React.Component{
                     <div className='dashboardGroup'>
                         {this.renderWelcome()}
                         {this.renderButton()}
+                        <Modal show={this.state.toggleModal} >
+                            <AddPlant hideModal={this.hideModal} />
+                        </Modal>
                     </div>
                     <GetPlants />
                 </div>

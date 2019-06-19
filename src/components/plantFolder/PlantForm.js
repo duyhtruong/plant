@@ -1,8 +1,6 @@
 import React from 'react';
 import { Field, reduxForm  } from 'redux-form';
 
-import { Link } from 'react-router-dom';
-
 import Card from 'react-bootstrap/Card'
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -60,9 +58,7 @@ const PlantForm = (props) => {
                 </div>
                 <div className='plantFormButtons'>
                     <Button onClick={props.handleSubmit(props.onSubmit)} variant='primary'>Submit</Button>
-                    <Button variant='danger'>
-                        <Link to='/dashboard' className='plantFormLink'>Cancel</Link>
-                    </Button>
+                    <Button variant='danger' onClick={()=>props.hideModal()}>Cancel</Button>
                 </div>
             </form>
             </Card.Body>

@@ -10,18 +10,20 @@ import _ from 'lodash';
 
 class EditPlant extends React.Component{
     componentDidMount(){
-        this.props.getPlant(this.props.match.params.id,this.props.user.undefined.token)
+        this.props.getPlant(this.props.plantID,this.props.user.undefined.token)
     }
     onSubmit=(formValues)=>{
-        this.props.editPlant(this.props.match.params.id,formValues,this.props.user.undefined.token)
+        this.props.editPlant(this.props.plantID,formValues,this.props.user.undefined.token)
+        this.props.hideEditModal()
     }
     
     render(){
         return(
-            <div className='loginLandingPage'>
+            <div>
                 <PlantForm 
-                    initialValues={_.pick(this.props.plant, 'name', 'water')}
+                    initialValues={_.pick(this.props.plant, 'name','sun', 'water')}
                     onSubmit={this.onSubmit}
+                    hideModal={this.props.hideEditModal}
                 />
             </div>
         )
@@ -30,7 +32,7 @@ class EditPlant extends React.Component{
 
 const mapStateToProps = (state, ownProps) =>{
     return{
-        plant: state.plants[ownProps.match.params.id],
+        plant: state.plant[ownProps.plantID],
         user: state.users
     }
 }
