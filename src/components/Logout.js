@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions';
+import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 class Logout extends React.Component{
     
@@ -12,10 +14,14 @@ class Logout extends React.Component{
     
     render(){
         return(
-            <div>
-                <h1>Are you sure you want to logout</h1>
-                <button onClick={this.logout}>logout</button>
-                <button>no</button>
+            <div className='loginLandingPage'>
+            <Card className='loginCard'>
+                <h1 className='cardTitle'>Are you sure you want to logout</h1>
+                <div className='loginFormButtonContainer'>
+                    <button className='loginFormButtons' onClick={this.logout}>LOGOUT</button>
+                    <Link className='loginFormButtons plantFormLink' to='/dashboard'>Cancel</Link>
+                </div>
+            </Card>
             </div>
         )
     }
