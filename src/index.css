@@ -174,17 +174,33 @@
     font-size: 3em;
     font-weight: 700;
     position: absolute;
-    top: 170px;
+    top: 150px;
     width: 100%;
     left: 0;
-    
-    
+}
+
+.cardWaterButton{
+    border-style: solid;
+    border-width: 6px;
+    border-color: white;
+    text-decoration: none;
+    height: 75px;
+    width: 75px;
+    border-radius:10em;
+    background-color: #4384bf;
+    color: white;
+    position: absolute;
+    left:50%;
+    margin-left: -37.5px;
+    top: 215px;
+
+
 }
 
 .plantCardHeaderDays{
     position: absolute;
     width: 100%;
-    top: 135px;
+    top: 115px;
     left: 0;
 }
 

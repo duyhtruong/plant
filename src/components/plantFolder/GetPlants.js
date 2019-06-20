@@ -3,10 +3,9 @@ import { getPlants, deletePlant } from '../../actions/';
 import { connect } from 'react-redux';
 
 import EditPlant from './EditPlant';
-
 import Card from 'react-bootstrap/Card';
-
 import Modal from 'react-bootstrap/Modal';
+import { editPlant } from '../../actions';
 
 import { FiSun, FiClock, FiCloudDrizzle } from 'react-icons/fi';
 
@@ -65,9 +64,18 @@ class GetPlants extends React.Component{
 
     formatLastWater = (plant) => {
         var lastDay = new Date(plant.lastwater);
+        console.log('HELLO')
         var day = lastDay.getDate();
         var month = lastDay.getMonth();
         return this.state.months[month] + ' ' + day.toString();
+    }
+
+    changeLastWatered = (plant) => {
+        var today = new Date()
+        var todayObject = {
+            'lastwater': today
+        }
+        this.props.editPlant(plant._id,todayObject,this.props.user.undefined.token)
     }
 
 
@@ -82,6 +90,9 @@ class GetPlants extends React.Component{
                             <p className='plantCardHeaderTop'>{plant.name}</p>
                             <p className='plantCardHeaderDays'>Next watering date:</p>
                             <p className='plantCardHeaderBottom'>{this.getNextDate(plant)}</p>
+                            <button 
+                                className='cardWaterButton'
+                                onClick={()=>this.changeLastWatered(plant)}>WATER</button>
                         </Card.Header>
                         <Card.Body className='plantCardBody'>
                            
@@ -93,7 +104,7 @@ class GetPlants extends React.Component{
                                 <div className='cardDetails'>
                                     <p>{plant.sun}</p>
                                     <p>Water every {plant.water} days</p>
-                                    <p>Last watering date: {this.formatLastWater(plant)} </p>
+                                    <p>Last watered: {this.formatLastWater(plant)} </p>
                                 </div>
                           
                         </Card.Body>
@@ -137,4 +148,4 @@ const mapStateToProps = (state) =>{
     }
 }
 
-export default connect(mapStateToProps,{ getPlants, deletePlant })(GetPlants);
+export default connect(mapStateToProps,{ getPlants, deletePlant, editPlant })(GetPlants);
