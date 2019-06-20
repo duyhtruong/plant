@@ -5,6 +5,24 @@ import Card from 'react-bootstrap/Card'
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
+import moment from 'moment';
+import momentLocalizer from 'react-widgets-moment';
+import DateTimePicker from 'react-widgets/lib/DateTimePicker';
+
+import 'react-widgets/dist/css/react-widgets.css'
+
+momentLocalizer(moment)
+
+const renderDateTimePicker = ({ input: { onChange,value }, showTime}) =>
+<DateTimePicker
+    onChange={onChange}
+    format='DD MM YYYY'
+    time={showTime}
+    value={!value ? null : new Date(value)}
+/>
+
+
+
 const renderCustomForm = ({input, type, placeholder})=>{
     return(<FormControl 
          type={type}
@@ -56,6 +74,15 @@ const PlantForm = (props) => {
                    
                 />
                 </div>
+                <div>
+                <label>Last time plant was watered:</label>
+                    <Field 
+                        name='lastwater'
+                        showTime={false}
+                        component={renderDateTimePicker}
+                    />
+                </div>
+
                 <div className='plantFormButtons'>
                     <Button onClick={props.handleSubmit(props.onSubmit)} variant='primary'>Submit</Button>
                     <Button variant='danger' onClick={()=>props.hideModal()}>Cancel</Button>

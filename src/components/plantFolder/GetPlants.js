@@ -34,6 +34,30 @@ class GetPlants extends React.Component{
         this.props.deletePlant(id)
     }
 
+    getNextDate = (plant) => {
+        var months = ["January", 
+                        "February", 
+                        "March", 
+                        "April", 
+                        "May", 
+                        "June",
+                        "July",
+                        "August",
+                        "September",
+                        "October",
+                        "November",
+                        "December"]
+        
+        var nextDay = new Date(plant.lastwater);
+        nextDay.setDate(nextDay.getDate() + parseInt(plant.water));
+
+        var day = nextDay.getDate();
+
+        var month = nextDay.getMonth();
+
+        return months[month]  + ' ' + day.toString();
+        
+    }   
 
 
     renderPlants = () =>{
@@ -44,13 +68,15 @@ class GetPlants extends React.Component{
                         className='getPlantsCards'  
                     >
                         <Card.Header className='plantCardHeader'>
-                            <p className='plantCardHeaderTop'>Water Every</p>
-                            <p className='plantCardHeaderDays'>{plant.water}</p>
-                            <p className='plantCardHeaderBottom'>Days</p>
+                            <p className='plantCardHeaderTop'>Water on </p>
+                            <p className='plantCardHeaderDays'>{this.getNextDate(plant)}</p>
+                            <p className='plantCardHeaderBottom'>this date!</p>
                         </Card.Header>
                         <Card.Body className='plantCardBody'>
                             <Card.Title className='plantCardTitle'>
                                 {plant.name}
+                                {this.getNextDate(plant)}
+
                             </Card.Title>
                             <Card.Text>
                                 {plant.sun}

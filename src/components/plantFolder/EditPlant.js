@@ -21,7 +21,7 @@ class EditPlant extends React.Component{
         return(
             <div>
                 <PlantForm 
-                    initialValues={_.pick(this.props.plant, 'name','sun', 'water')}
+                    initialValues={_.pick(this.props.plant, 'name','sun', 'water', 'lastwater')}
                     onSubmit={this.onSubmit}
                     hideModal={this.props.hideEditModal}
                 />
@@ -32,7 +32,7 @@ class EditPlant extends React.Component{
 
 const mapStateToProps = (state, ownProps) =>{
     return{
-        plant: state.plant[ownProps.plantID],
+        plant: state.plants[ownProps.plantID],
         user: state.users
     }
 }
