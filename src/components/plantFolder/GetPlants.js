@@ -8,10 +8,24 @@ import Card from 'react-bootstrap/Card';
 
 import Modal from 'react-bootstrap/Modal';
 
+import { FiSun, FiClock, FiCloudDrizzle } from 'react-icons/fi';
+
 class GetPlants extends React.Component{
 
     state ={
-        editModal: null
+        editModal: null,
+        months: ["January", 
+                "February", 
+                "March", 
+                "April", 
+                "May", 
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"]
     }
 
     showEditModal = (id) => {
@@ -34,19 +48,9 @@ class GetPlants extends React.Component{
         this.props.deletePlant(id)
     }
 
+  
+
     getNextDate = (plant) => {
-        var months = ["January", 
-                        "February", 
-                        "March", 
-                        "April", 
-                        "May", 
-                        "June",
-                        "July",
-                        "August",
-                        "September",
-                        "October",
-                        "November",
-                        "December"]
         
         var nextDay = new Date(plant.lastwater);
         nextDay.setDate(nextDay.getDate() + parseInt(plant.water));
@@ -55,9 +59,16 @@ class GetPlants extends React.Component{
 
         var month = nextDay.getMonth();
 
-        return months[month]  + ' ' + day.toString();
+        return this.state.months[month]  + ' ' + day.toString();
         
     }   
+
+    formatLastWater = (plant) => {
+        var lastDay = new Date(plant.lastwater);
+        var day = lastDay.getDate();
+        var month = lastDay.getMonth();
+        return this.state.months[month] + ' ' + day.toString();
+    }
 
 
     renderPlants = () =>{
@@ -68,19 +79,23 @@ class GetPlants extends React.Component{
                         className='getPlantsCards'  
                     >
                         <Card.Header className='plantCardHeader'>
-                            <p className='plantCardHeaderTop'>Water on </p>
-                            <p className='plantCardHeaderDays'>{this.getNextDate(plant)}</p>
-                            <p className='plantCardHeaderBottom'>this date!</p>
+                            <p className='plantCardHeaderTop'>{plant.name}</p>
+                            <p className='plantCardHeaderDays'>Next watering date:</p>
+                            <p className='plantCardHeaderBottom'>{this.getNextDate(plant)}</p>
                         </Card.Header>
                         <Card.Body className='plantCardBody'>
-                            <Card.Title className='plantCardTitle'>
-                                {plant.name}
-                                {this.getNextDate(plant)}
-
-                            </Card.Title>
-                            <Card.Text>
-                                {plant.sun}
-                            </Card.Text>
+                           
+                                <div className='cardIcons'>
+                                    <div><FiSun /></div>
+                                    <div><FiCloudDrizzle /></div>
+                                    <div><FiClock /></div>
+                                </div>
+                                <div className='cardDetails'>
+                                    <p>{plant.sun}</p>
+                                    <p>Water every {plant.water} days</p>
+                                    <p>Last watering date: {this.formatLastWater(plant)} </p>
+                                </div>
+                          
                         </Card.Body>
                         <div className='plantCardButtonContainer'>
                             <button className='plantCardButton' 
