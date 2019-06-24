@@ -7,9 +7,8 @@ import { createPlant } from '../../actions';
 class AddPlant extends React.Component{
     
     onSubmit=(formValues,props)=>{
-            this.props.createPlant(formValues,this.props.user.undefined.token)
-            this.props.hideModal()
-        
+            this.props.createPlant(formValues,this.props.user.undefined.token,this.props.hideModal)
+ 
     }
     
     render(){

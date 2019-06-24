@@ -104,7 +104,20 @@
 .loginField{
     border: none;
     border-bottom: 1px solid #ecf0f1;
+    width: 500px;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+
 }
+
+.loginFieldError{
+    color: red;
+    font-weight: 700;
+    
+}
+
+
 
 .loginFormButtons{
 

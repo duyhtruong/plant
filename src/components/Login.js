@@ -11,13 +11,25 @@ class Login extends React.Component{
         )
     }
     
+    renderError = () =>{
+        if(this.props.error.error){
+            return <p className='loginFieldError'>{this.props.error.error}</p>
+        }
+    }
+
     render(){
         return(
             <div className='loginLandingPage'>
-                <LoginForm onSubmit={this.onSubmit} />
+                <LoginForm onSubmit={this.onSubmit} renderError={this.renderError}/>
             </div>
         )
     }
 }
 
-export default connect(null, { loginUser })(Login);
+const mapStateToProps = (state) =>{
+    return {
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps, { loginUser })(Login);

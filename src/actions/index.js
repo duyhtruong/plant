@@ -3,14 +3,20 @@ import users from '../api/users';
 import history from '../history';
 
 
-export const createPlant = (formValues, token) => {
+export const createPlant = (formValues, token, hideModal) => {
     return async (dispatch, getState) => {
         const headers = {
             'Authorization' : `Bearer ${token}`
         }
+        try{
         const response = await plants.post('/plant', formValues, {headers});
         dispatch({ type: 'CREATE_PLANT', payload: response.data});
-        history.push('/dashboard');
+        hideModal()
+
+        }catch(e){
+            throw new Error(e.response);
+            
+        }
     };
 };
 
@@ -66,9 +72,14 @@ export const newUser = (formValues) =>{
 
 export const loginUser = (formValues) =>{
     return async(dispatch) =>{
+        try{
         const response = await users.post('/users/login', formValues);
         dispatch({ type: 'LOGIN_USER', payload: response.data});
         history.push('/dashboard');
+        }catch(e){
+            console.log(e.response.data.error)
+            dispatch({ type: 'LOGIN_ERROR', payload: e.response.data.error});
+        }
     }
 }
 

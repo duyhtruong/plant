@@ -23,16 +23,41 @@ const renderDateTimePicker = ({ input: { onChange,value }, showTime}) =>
 
 
 
-const renderCustomForm = ({input, type, placeholder})=>{
-    return(<FormControl 
-         type={type}
-         placeholder={placeholder}
-         value={input.value}
-         onChange={input.onChange}
-         className='loginField'
-     />
+const renderCustomForm = ({input, type, placeholder, meta:{touched, error}})=>{
+    return(
+        <div>
+            <input {...input} placeholder={placeholder} type={type} className='loginField'/>
+            {touched && (error && <span>{error}</span>)}
+        </div>
     )
  }
+
+
+ const validate = values => {
+    const errors = {}
+    if (!values.name) {
+      errors.name = <p className='loginFieldError'>Name Required</p>
+    } else if (values.name.length > 15) {
+      errors.name = <p className='loginFieldError'>Must be 15 characters or less</p>
+    }
+    if (!values.sun) {
+      errors.sun = <p className='loginFieldError'>Required</p>
+    } 
+    if (!values.water) {
+        errors.water = <p className='loginFieldError'>Number of days required</p>
+      } else if (isNaN(Number(values.water))) {
+        errors.water = <p className='loginFieldError'>Must be a number</p>
+      } 
+    if (!values.lastwater) {
+      errors.lastwater = <p className='loginFieldError'>Date Required</p>
+    }
+    return errors
+  }
+
+
+
+
+
 
 const PlantForm = (props) => {
 
@@ -95,5 +120,6 @@ const PlantForm = (props) => {
 }
 
 export default reduxForm({
-    form: 'plantForm'
+    form: 'plantForm',
+    validate
 })(PlantForm);

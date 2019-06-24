@@ -64,7 +64,6 @@ class GetPlants extends React.Component{
 
     formatLastWater = (plant) => {
         var lastDay = new Date(plant.lastwater);
-        console.log('HELLO')
         var day = lastDay.getDate();
         var month = lastDay.getMonth();
         return this.state.months[month] + ' ' + day.toString();

@@ -5,20 +5,40 @@ import { Field, reduxForm  } from 'redux-form';
 import Card from 'react-bootstrap/Card'
 import FormControl from 'react-bootstrap/FormControl';
 
+const validate = values => {
+    const errors = {}
+    if (!values.email) {
+      errors.email = <p className='loginFieldError'>Required</p>
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = <p className='loginFieldError'>Invalid email address</p>
+    }
+    if (!values.password) {
+      errors.password = <p className='loginFieldError'>Required</p>
+    } 
+    return errors
+  }
 
-const renderCustomForm = ({input, type, placeholder})=>{
+const renderCustomForm = ({input, type, placeholder, meta: {touched, error}})=>{
     return(
+        <div>
+            <input {...input} placeholder={placeholder} type={type} className='loginField'/>
+            {touched && (error && <span>{error}</span>)}
+        </div>
 
-    <FormControl 
-         type={type}
-         value={input.value}
-         onChange={input.onChange}
-         placeholder={placeholder}
-         className='loginField'
-     />
+
+//         <div>
+//    <FormControl 
+//          type={type}
+//          value={input.value}
+//          onChange={input.onChange}
+//          placeholder={placeholder}
+//          className='loginField'
+//      />{touched && (error && <span>{error}</span>)}
+//      </div>
    
     )
  }
+
 
 const LoginForm = (props) => {
 
@@ -51,6 +71,9 @@ const LoginForm = (props) => {
                    
                 />
                 </div>
+
+
+                {props.renderError()}
                 <div className='loginFormButtonContainer'>
                     <button className='loginFormButtons' type='submit' onClick={props.handleSubmit(props.onSubmit)}>
                         Login
@@ -65,5 +88,6 @@ const LoginForm = (props) => {
 }
 
 export default reduxForm({
-    form: 'loginForm'
+    form: 'loginForm',
+    validate
 })(LoginForm);
