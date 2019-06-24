@@ -8,19 +8,13 @@
 
 
 .navBar{
-    padding-bottom: 20em;
+    padding-bottom: 35em;
     font-family: 'Roboto', sans-serif;
     background-color: #77af74;
-    clip-path: polygon(0 0, 100% 0, 100% 3%, 0 79%);
-    font-size:1.5em;
-    margin-top:-20em;
-    
-}
+    clip-path: ellipse(81% 56% at 30% 2%);
 
-.navAccent{
-    background-color: #598457;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 0);
-    height: 30em;
+    font-size:1.5em; 
+    position: relative;
 }
 
 .navBarLogout{
@@ -157,12 +151,14 @@
 
 .getPlantsGroup{
     font-family: 'Roboto', sans-serif;
+    margin-top: 10em;
+    margin-bottom: 10em;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-bottom: 50vh;
+    justify-content: center;
 
+}
+
+.getPlantIndividual{
 }
 
 .plantCardTitle{
@@ -173,7 +169,7 @@
     height: 250px;
     position: relative;
     line-height: 3.5em;
-    width: 350px;
+    max-width: 350px;
     color: white;
     text-align: center;
     background:linear-gradient(180deg, #86b3e5 0%,#4384bf 100%);    
@@ -242,10 +238,10 @@
 
 .getPlantsCards{
     min-height: 400px;
-    width: 350px;
-    margin-top: 10vw;
+    max-width: 350px;
+    margin-bottom: 1em;
     box-shadow: 2px 2px 40px 3px rgba(0,0,0,0.21);  
-    margin-right: 3em;
+  
 }
 
 .plantCardButtonContainer{
@@ -306,6 +302,7 @@
     width: 200px;
     height: 200px;
     border-radius: 10em;
+    border: none;
     z-index: 5;
 }
 
@@ -313,15 +310,30 @@
     font-size: 8em;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    color:#c1dfc4;
+    color:black;
     z-index: 5;
 }
 
 .dashboardBackground{
-    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);    
-    height: 90vh;
-    margin-top:-30em;
+    color: black;
+    background-color: #f2f1ef;
+    padding-bottom: 5em;
 }
+
+.dashboardAccent{
+    background-color: #77af74;
+    position: absolute;
+    height: 600px;
+    width: 100vw;
+    top: 1400px;
+    clip-path: ellipse(57% 52% at 71% 82%);
+    
+  
+
+
+
+}
+
 
 .helloDash{
     font-family: 'Roboto', sans-serif;
@@ -339,5 +351,7 @@
     align-items: center;
     justify-content: space-around;
     padding-top: 8em;
+    position: relative;
     flex-wrap: wrap;
+    margin-top: -60em;
 }

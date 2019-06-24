@@ -53,6 +53,7 @@ class Dashboard extends React.Component{
                         <Modal show={this.state.toggleModal} >
                             <AddPlant hideModal={this.hideModal} />
                         </Modal>
+                        <div className='dashboardAccent'></div>
                     </div>
                     <GetPlants />
                 </div>

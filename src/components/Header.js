@@ -35,7 +35,6 @@ class Header extends React.Component{
             <div>
             <div className='navAccent'></div>
                 <Navbar className='navBar'>
-                    <Navbar.Brand><Link className='navBarLink navBarBrand' to='/dashboard'>Home</Link></Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         {this.renderButton()}          

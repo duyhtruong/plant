@@ -7,6 +7,10 @@ import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import { editPlant } from '../../actions';
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+
 import { FiSun, FiClock, FiCloudDrizzle } from 'react-icons/fi';
 
 class GetPlants extends React.Component{
@@ -81,7 +85,7 @@ class GetPlants extends React.Component{
     renderPlants = () =>{
         return (
             this.props.plants.map((plant)=>
-                <div key={plant._id}>
+                <Col md={6} lg={4} className='getPlantIndividual' key={plant._id}>
                     <Card 
                         className='getPlantsCards'  
                     >
@@ -124,7 +128,7 @@ class GetPlants extends React.Component{
                             </Modal>
                         </div>   
                     </Card>
-                </div>
+                </Col>
             )
         )
     }
@@ -133,9 +137,11 @@ class GetPlants extends React.Component{
     
     render(){
         return(
-            <div className='getPlantsGroup'>             
+            <Container>
+            <Row className='getPlantsGroup' noGutters={true}>             
                 {this.renderPlants()}
-            </div>
+            </Row>
+            </Container>
         )
     }
 }
