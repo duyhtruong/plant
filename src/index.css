@@ -5,7 +5,12 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap');
 
+body{
+    background-color: #f2f1ef;;
+}
 
+
+/* Navigation Bar */
 
 .navBar{
     padding-bottom: 35em;
@@ -18,11 +23,11 @@
 }
 
 .navBarLogout{
-  padding-right:4em;
   background-color: #77af74;
   color: white;
   text-decoration: none;
   border: none;
+
 }
 
 .navBarLink{
@@ -32,6 +37,8 @@
     
 }
 
+
+/* Landing Page */
 
 
 .landingCards{
@@ -64,11 +71,7 @@
 
 
 
-
-
-
-
-
+/* Cards and Logging In*/
 
 .cardTitle{
     font-family: 'Roboto', sans-serif;
@@ -146,7 +149,7 @@
 
 
 
-
+/* Plant Cards  */
 
 
 .getPlantsGroup{
@@ -158,8 +161,6 @@
 
 }
 
-.getPlantIndividual{
-}
 
 .plantCardTitle{
     font-size: 1.5em;
@@ -284,19 +285,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .addPlantButton{
     background-color: white;
     width: 200px;
@@ -310,7 +298,7 @@
     font-size: 8em;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    color:black;
+    color: #77af74;
     z-index: 5;
 }
 
@@ -320,19 +308,7 @@
     padding-bottom: 5em;
 }
 
-.dashboardAccent{
-    background-color: #77af74;
-    position: absolute;
-    height: 600px;
-    width: 100vw;
-    top: 1400px;
-    clip-path: ellipse(57% 52% at 71% 82%);
-    
-  
 
-
-
-}
 
 
 .helloDash{
@@ -343,6 +319,7 @@
     font-weight: 900;
     text-align: left;
     z-index: 5;
+    
 }
 
 
@@ -351,7 +328,61 @@
     align-items: center;
     justify-content: space-around;
     padding-top: 8em;
-    position: relative;
     flex-wrap: wrap;
     margin-top: -60em;
+
+}
+
+/*Media Query for iphone screens */
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px){
+     .helloDash{
+         font-size: 5em;
+         padding-bottom: 0.5em;
+         padding-left: 0.5em;
+     }
+
+     .dashboardGroup{
+        flex-direction: column;
+        justify-content: center;
+     }
+
+     .addPlantButton{
+        width: 100px;
+        height: 100px;
+        border-radius: 10em;
+
+    }
+    
+    .addPlantText{
+        font-size: 4em;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        color: #77af74;
+        z-index: 5;
+    }
+
+    .loginCard{
+        padding: 3em 3em 3em 3em;
+        width: 350px;
+    }
+
+    .loginField{
+        width: 200px;
+        margin-bottom: 1em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
+    .loginFormButtons{
+
+       
+        border-radius: 5em;
+        padding:0.5em 3em 0.5em 3em ;
+        margin-top: 1em;
+    }    
+
+    .landingCardLeft{
+        display: none;
+    }
 }

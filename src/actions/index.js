@@ -8,6 +8,7 @@ export const createPlant = (formValues, token, hideModal) => {
         const headers = {
             'Authorization' : `Bearer ${token}`
         }
+        console.log(formValues)
         try{
         const response = await plants.post('/plant', formValues, {headers});
         dispatch({ type: 'CREATE_PLANT', payload: response.data});

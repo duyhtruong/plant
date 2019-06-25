@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import moment from 'moment';
 import momentLocalizer from 'react-widgets-moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
+import DropdownList from 'react-widgets/lib/DropdownList';
 
 import 'react-widgets/dist/css/react-widgets.css'
 
@@ -21,7 +22,10 @@ const renderDateTimePicker = ({ input: { onChange,value }, showTime}) =>
     value={!value ? null : new Date(value)}
 />
 
-
+const renderDropdownList = ({input, data, valueField, textField }) => 
+<DropdownList {...input}
+    data={data}
+    onChange={input.onChange} />
 
 const renderCustomForm = ({input, type, placeholder, meta:{touched, error}})=>{
     return(
@@ -40,9 +44,6 @@ const renderCustomForm = ({input, type, placeholder, meta:{touched, error}})=>{
     } else if (values.name.length > 15) {
       errors.name = <p className='loginFieldError'>Must be 15 characters or less</p>
     }
-    if (!values.sun) {
-      errors.sun = <p className='loginFieldError'>Required</p>
-    } 
     if (!values.water) {
         errors.water = <p className='loginFieldError'>Number of days required</p>
       } else if (isNaN(Number(values.water))) {
@@ -55,7 +56,11 @@ const renderCustomForm = ({input, type, placeholder, meta:{touched, error}})=>{
   }
 
 
-
+const sunType = [
+    'Likes low light',
+    'Likes filtered light',
+    'Likes direct light'
+]
 
 
 
@@ -80,13 +85,12 @@ const PlantForm = (props) => {
                 </div>
     
                 <div>
-                <label>How Much Sunlight:</label>
+                <label>Type of Light:</label>
                 <Field  
                     name='sun'
-                    component={renderCustomForm}
-                    type='text'
+                    component={renderDropdownList}
+                    data={sunType}
                     placeholder="'Likes direct sunlight'"
-                   
                 />
                 </div>
                 <div>

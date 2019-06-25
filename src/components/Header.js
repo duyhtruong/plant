@@ -33,7 +33,6 @@ class Header extends React.Component{
     render(){
         return(
             <div>
-            <div className='navAccent'></div>
                 <Navbar className='navBar'>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
