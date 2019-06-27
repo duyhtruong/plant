@@ -82,6 +82,7 @@ const LoginForm = (props) => {
      
             </form>
             </Card.Body>
+
             </Card> 
         );
     

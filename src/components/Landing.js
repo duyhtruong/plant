@@ -10,11 +10,10 @@ class Landing extends React.Component{
         
             <div className='loginLandingPage'>
             <CardGroup>
-                <Card className='landingCards landingCardLeft'>
-
-                </Card>
-                <Card className='landingCards'>
-                    <Card.Title className='landingTitle'>Welcome To Plant Feedr</Card.Title>
+                <Card className='landingCards landingCardLeft'></Card>
+                <Card className='landingCards landingCardRight'>
+                    <Card.Title className='landingTitle'>Plant Feedr</Card.Title>
+                    <p>a web app created to help keep house plants alive</p>
                     <div className='landingFormButtonContainer'>
                   
                             <Link className='plantFormLink landingButtons' to='/login'>Login</Link>
