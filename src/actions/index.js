@@ -59,7 +59,7 @@ export const editPlant = (id, formValues, token) => {
         }
         const response = await plants.patch(`/plant/${id}`, formValues,{headers});
         dispatch({ type: 'EDIT_PLANT', payload: response.data});
-        history.push('/dashboard');
+        history.push('/plant/dashboard');
     }
 }
 
@@ -67,7 +67,7 @@ export const newUser = (formValues) =>{
     return async(dispatch) =>{
         const response = await users.post('/users', formValues);
         dispatch({ type: 'NEW_USER', payload: response.data});
-        history.push('/dashboard');
+        history.push('/plant/dashboard');
     }
 }
 
@@ -76,7 +76,7 @@ export const loginUser = (formValues) =>{
         try{
         const response = await users.post('/users/login', formValues);
         dispatch({ type: 'LOGIN_USER', payload: response.data});
-        history.push('/dashboard');
+        history.push('/plant/dashboard');
         }catch(e){
             console.log(e.response.data.error)
             dispatch({ type: 'LOGIN_ERROR', payload: e.response.data.error});
@@ -91,6 +91,6 @@ export const logoutUser = (token) => {
         }
         const response = await users.post('/users/logout',null, {headers})
         dispatch ({ type: 'LOGOUT_USER', payload: response.data});
-        history.push('/');
+        history.push('/plant/');
     }
 }

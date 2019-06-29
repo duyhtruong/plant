@@ -16,8 +16,8 @@ class Landing extends React.Component{
                     <p>Created to keep your plants alive</p>
                     <div className='landingFormButtonContainer'>
                   
-                            <Link className='plantFormLink landingButtons' to='/login'>Login</Link>
-                            <Link className='plantFormLink landingButtons' to='/register'>Sign Up</Link>
+                            <Link className='plantFormLink landingButtons' to='/plant/login'>Login</Link>
+                            <Link className='plantFormLink landingButtons' to='/plant/register'>Sign Up</Link>
                     
                     </div>
                 </Card>
