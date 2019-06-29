@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Logout from './Logout';
 class Header extends React.Component{

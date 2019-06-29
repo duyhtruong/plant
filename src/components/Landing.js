@@ -13,7 +13,7 @@ class Landing extends React.Component{
                 <Card className='landingCards landingCardLeft'></Card>
                 <Card className='landingCards landingCardRight'>
                     <Card.Title className='landingTitle'>Plant Feedr</Card.Title>
-                    <p>a web app created to help keep house plants alive</p>
+                    <p>Created to keep your plants alive</p>
                     <div className='landingFormButtonContainer'>
                   
                             <Link className='plantFormLink landingButtons' to='/login'>Login</Link>

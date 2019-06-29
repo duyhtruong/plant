@@ -2,7 +2,6 @@ import React from 'react';
 import { Field, reduxForm  } from 'redux-form';
 
 import Card from 'react-bootstrap/Card'
-import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
 import moment from 'moment';

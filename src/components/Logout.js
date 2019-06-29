@@ -15,9 +15,9 @@ class Logout extends React.Component{
     renderLogout = () => {
         return (
         <Card className='loginCard'>
-        <h1 className='cardTitle'>Are you sure you want to logout</h1>
+        <h1 className='cardTitle'>Are you sure you want to logout?</h1>
         <div className='loginFormButtonContainer'>
-            <button className='loginFormButtons' onClick={this.logout}>LOGOUT</button>
+            <button className='loginFormButtons' onClick={this.logout}>Logout</button>
             <button className='loginFormButtons' onClick={()=>this.props.hideLogOutModal()}>Cancel</button>
             
         </div>
