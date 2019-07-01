@@ -1,3 +1,7 @@
+/*
+    Axios instance for User API endpoint
+*/
+
 import axios from 'axios';
 
 export default axios.create({

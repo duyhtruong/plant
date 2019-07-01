@@ -1,3 +1,7 @@
+/*
+    Update Plant Store State
+*/
+
 import _ from 'lodash';
 
 export default (state={}, action) =>{

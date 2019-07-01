@@ -1,8 +1,11 @@
 import React from 'react'
 import LoginForm from './LoginForm';
+
 import { connect } from 'react-redux';
 import { loginUser } from '../actions';
 
+
+//Render Login Page
 class Login extends React.Component{
     
     onSubmit = (formValues) =>{

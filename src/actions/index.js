@@ -2,7 +2,12 @@ import plants from '../api/plants';
 import users from '../api/users';
 import history from '../history';
 
+/*
+    Plant Action Creators
+*/
 
+
+//Create new plant
 export const createPlant = (formValues, token, hideModal) => {
     return async (dispatch, getState) => {
         const headers = {
@@ -21,6 +26,8 @@ export const createPlant = (formValues, token, hideModal) => {
     };
 };
 
+
+//Get all plants
 export const getPlants = (token) => {
     return async (dispatch) => {
         const headers = {
@@ -31,6 +38,7 @@ export const getPlants = (token) => {
     }
 }
 
+//Get single Plant
 export const getPlant = (id, token) => {
     return async (dispatch) => {
         const headers = {
@@ -41,6 +49,7 @@ export const getPlant = (id, token) => {
     }
 }
 
+//Delete Plant
 export const deletePlant = (id, token) => {
     return async(dispatch) => {
         const headers = {
@@ -52,6 +61,7 @@ export const deletePlant = (id, token) => {
     }
 }
 
+//Edit Plant
 export const editPlant = (id, formValues, token) => {
     return async(dispatch) => {
         const headers = {
@@ -63,6 +73,26 @@ export const editPlant = (id, formValues, token) => {
     }
 }
 
+
+
+/*
+    User Action Creators
+*/
+
+
+//Edit Users
+export const editUser = (formValues, token) => {
+    return async(dispatch) => {
+        const headers = {
+            'Authorization' : `Bearer ${token}`
+        }
+        const response = await users.patch('/users/me', formValues,{headers});
+        dispatch({ type: 'EDIT_USER', payload: response.data});
+        history.push('/plant/dashboard');
+    }
+}
+
+//Create new user
 export const newUser = (formValues) =>{
     return async(dispatch) =>{
         const response = await users.post('/users', formValues);
@@ -71,6 +101,7 @@ export const newUser = (formValues) =>{
     }
 }
 
+//Login User
 export const loginUser = (formValues) =>{
     return async(dispatch) =>{
         try{
@@ -84,6 +115,7 @@ export const loginUser = (formValues) =>{
     }
 }
 
+//Logout User
 export const logoutUser = (token) => {
     return async(dispatch) => {
         const headers = {
@@ -92,5 +124,18 @@ export const logoutUser = (token) => {
         const response = await users.post('/users/logout',null, {headers})
         dispatch ({ type: 'LOGOUT_USER', payload: response.data});
         history.push('/plant/');
+    }
+}
+
+//Delete User
+export const deleteUser = (token) => {
+    return async(dispatch) => {
+        const headers = {
+            'Authorization' : `Bearer ${token}`
+        }
+        const response = await users.delete('/users/me', {headers});
+        dispatch({ type: 'DELETE_USER', payload: response.data._id});
+        history.push('/plant/')
+        
     }
 }

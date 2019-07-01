@@ -10,16 +10,18 @@ body{
 }
 
 
-/* Navigation Bar */
+/* 
+    Navigation Bar 
+*/
 
 .navBar{
-    padding-bottom: 35em;
+    padding-bottom:35em;
+    clip-path: ellipse(81% 56% at 30% 2%);
     font-family: 'Roboto', sans-serif;
     background-color: #77af74;
-    clip-path: ellipse(81% 56% at 30% 2%);
-
     font-size:1.5em; 
     position: relative;
+    padding-left:1em
 }
 
 .navBarLogout{
@@ -27,7 +29,7 @@ body{
   color: white;
   text-decoration: none;
   border: none;
-
+  display: flex;
 }
 
 .navBarLink{
@@ -38,7 +40,9 @@ body{
 }
 
 
-/* Landing Page */
+/* 
+    Landing Page 
+*/
 
 .landingCards{
     height: 600px;
@@ -79,7 +83,9 @@ body{
 
 
 
-/* Cards and Logging In*/
+/* 
+    Cards and Logging In
+*/
 
 .cardTitle{
     font-family: 'Roboto', sans-serif;
@@ -96,7 +102,6 @@ body{
     font-weight: 400; 
 
 }
-
 
 .loginLandingPage{
     display: flex;
@@ -123,18 +128,15 @@ body{
     
 }
 
-
-
 .loginFormButtons{
-
     background-color:#77af74;
     color: white; 
     text-decoration: none;
     border-radius: 0.5em;
     padding:1em 5em 1em 5em ;
+    margin-right: 0.5em;
     margin-top: 1em;
     border: none;
-
 }
 
 .loginFormButtonContainer{
@@ -152,14 +154,9 @@ body{
 }
 
 
-
-
-
-
-
-
-/* Plant Cards  */
-
+/* 
+    Plant Cards  
+*/
 
 .getPlantsGroup{
     font-family: 'Roboto', sans-serif;
@@ -167,9 +164,7 @@ body{
     margin-bottom: 10em;
     display: flex;
     justify-content: center;
-
 }
-
 
 .plantCardTitle{
     font-size: 1.5em;
@@ -214,8 +209,6 @@ body{
     left:50%;
     margin-left: -37.5px;
     top: 215px;
-
-
 }
 
 .plantCardHeaderDays{
@@ -224,7 +217,6 @@ body{
     top: 115px;
     left: 0;
 }
-
 
 .plantCardBody{
     display: flex;
@@ -282,10 +274,9 @@ body{
     font-weight: 100;
 }
 
-
 .plantFormButtons{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .plantFormLink{
@@ -294,7 +285,9 @@ body{
 }
 
 
-
+/*
+    Dashboard
+*/
 
 .addPlantButton{
     background-color: white;
@@ -319,9 +312,6 @@ body{
     padding-bottom: 5em;
 }
 
-
-
-
 .helloDash{
     font-family: 'Roboto', sans-serif;
     color: white;
@@ -331,21 +321,68 @@ body{
     text-align: left;
     padding-right: 0.5em;
     z-index: 5;
-    
 }
 
-
 .dashboardGroup{
+    margin-top: -60em;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 8em;
     flex-wrap: wrap;
-    margin-top: -60em;
-
 }
 
-/*Media Query for iphone screens */
+
+/*
+    Edit Form
+*/
+
+.userEditFormButtonContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: white; 
+}
+
+.editUserFormPrimary{
+    border: none;
+    text-decoration: none;
+    color: white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color:#77af74;
+    border-radius: 0.5em;
+    margin-right: 0.5em;
+    width: 200px;
+}
+
+.editUserFormSecondary{
+    border: none;
+    text-decoration: none;
+    background-color:#77af74;
+    width: 200px;
+    border-radius: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.deleteUserButton{
+    background-color:red;
+    color: white; 
+    border: none;
+    text-decoration: none;
+    width: 200px;
+    border-radius: 0.5em;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+/*
+    Media Query 
+*/
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 812px){
      .helloDash{
@@ -416,6 +453,21 @@ body{
 
     .plantFormButtons{
         display: flex;
+        justify-content: center;
+    }
+
+    .navBar{
+        clip-path: ellipse(85% 50% at 40% 2%);
+    }
+
+    .editUserFormPrimary{
+        margin-right: 0;
+        margin-bottom: 0.5em;
+    }
+
+    .plantFormButtons{
+        display: flex;
+        flex-direction: column;
         justify-content: center;
     }
 

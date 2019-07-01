@@ -5,6 +5,7 @@ import { newUser } from '../actions';
 
 class Register extends React.Component{
     
+    //Pass in onSubmit helper function in RegisterForm
     onSubmit = (formValues) =>{
         return(
             this.props.newUser(formValues)

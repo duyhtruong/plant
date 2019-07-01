@@ -1,3 +1,7 @@
+/*
+    State for rendering Login Error
+*/
+
 
 export default (state={}, action) =>{
     switch(action.type){

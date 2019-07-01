@@ -1,11 +1,10 @@
 import React from 'react';
-import { Field, reduxForm  } from 'redux-form';
 
+import { Field, reduxForm  } from 'redux-form';
 
 import Card from 'react-bootstrap/Card'
 
-
-
+//Validate Register Field
 const validate = values => {
     const errors = {}
     if (!values.email) {
@@ -32,57 +31,48 @@ const renderCustomForm = ({input, type, placeholder, meta:{touched, error}})=>{
  }
 
 const RegisterForm = (props) => {
-
-
         return(
             <Card className='loginCard'>
             <Card.Title className='cardTitle'>Sign Up</Card.Title>
             <Card.Body>
             <form >
-  
             <div>
-                   
-                    <Field
-                        name='name'
-                        component={renderCustomForm}
-                        type='text'
-                        placeholder='NAME'
-                     
-                        
-                    />
-                </div>  
-
-                <div>
-                    
-                    <Field
-                        name='email'
-                        component={renderCustomForm}
-                        type='text'
-                        placeholder='EMAIL'
-                     
-                        
-                    />
-                </div>
+                <Field
+                    name='name'
+                    component={renderCustomForm}
+                    type='text'
+                    placeholder='NAME' 
+                />
+            </div>  
+            <div>
+                <Field
+                    name='email'
+                    component={renderCustomForm}
+                    type='text'
+                    placeholder='EMAIL'
+                />
+            </div>
     
-                <div>
-               
+            <div>  
                 <Field  
                     name='password'
                     component={renderCustomForm}
-                    type='text'
-                    placeholder='PASSWORD'
-                   
+                    type='password'
+                    placeholder='PASSWORD'   
                 />
-                </div>
+            </div>
                 <div className='loginFormButtonContainer'>
-                    <button className='loginFormButtons plantFormButtons' onClick={props.handleSubmit(props.onSubmit)} variant='primary'>Sign Up</button>
-
+                    <button 
+                        className='loginFormButtons plantFormButtons' 
+                        onClick={props.handleSubmit(props.onSubmit)} 
+                        variant='primary'>
+                        Sign Up
+                    </button>
                 </div>
             </form>
             </Card.Body>
             </Card> 
-        );
-    
+        );   
 }
 
 export default reduxForm({

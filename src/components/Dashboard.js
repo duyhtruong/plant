@@ -10,6 +10,7 @@ class Dashboard extends React.Component{
         toggleModal: false
     }
 
+    //Toggle state to show and hide Modal
     showModal = () =>{
         this.setState({
             toggleModal: true
@@ -22,7 +23,7 @@ class Dashboard extends React.Component{
         })
     }
 
-
+    //Render User Specific Greeting
     renderWelcome = () =>{
         return(
             <div className='helloDash'>
@@ -32,14 +33,12 @@ class Dashboard extends React.Component{
         )
     }
     
+    //Render Add Plant Button
     renderButton = () => {
         return(  
-            
-                <button onClick={this.showModal} className='plantFormLink addPlantButton'>
-                    <p className='addPlantText'>+</p>
-                </button>
-            
-         
+            <button onClick={this.showModal} className='plantFormLink addPlantButton'>
+                <p className='addPlantText'>+</p>
+            </button> 
         ) 
     }
 
@@ -53,7 +52,6 @@ class Dashboard extends React.Component{
                         <Modal show={this.state.toggleModal} >
                             <AddPlant hideModal={this.hideModal} />
                         </Modal>
-                        <div className='dashboardAccent'></div>
                     </div>
                     <GetPlants />
                 </div>
